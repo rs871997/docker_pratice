@@ -1,7 +1,9 @@
 sudo: required
 services:
  - docker
+ 
 before_install:
- - docker build -t rs871997/docker_pratice -f Dockerfile.dev .
+ - docker build -t rs871997/docker-pratice -f Dockerfile.dev .
+ 
 script:
- - docker run rs871997/docker_pratice npm run test -- --coverage
+ - docker run -e CI=true rs871997/docker-pratice npm run test -- --coverage
